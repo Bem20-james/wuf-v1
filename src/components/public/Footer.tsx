@@ -117,7 +117,7 @@ const Footer = () => {
           >
             <Box
               component="img"
-              src="/logo/logo-light.png"
+              src="/logo.png"
               alt="Vantoria"
               sx={{
                 width: { xs: 40, md: 250 },

@@ -1,119 +1,139 @@
-import { Box, Container, Typography, Grid, Stack } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { FontFamily } from "../../../config/fonts";
 import { COLORS } from "../../../config/colors";
-import { CustomChip, CustomButton } from "../../../components/public";
-import { RocketLaunch } from "@mui/icons-material";
+import {
+  AboutHero,
+  CommitmentSection,
+  VisionSection,
+  LeadershipSection,
+  MovementSection,
+  TrustSection,
+} from "../../../components/public";
+import { PillarSection } from "../../../components/public";
 
 const AboutUsPage = () => {
   return (
-    <Box
-      sx={{
-        bgcolor: "#fff",
-        minHeight: "100vh",
-        pt: { xs: "100px", md: "120px" },
-        pb: { xs: 10, md: 16 },
-        position: "relative",
-        overflow: "hidden",
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          top: 0,
-          right: 0,
-          width: "500px",
-          height: "500px",
-          background:
-            "radial-gradient(ellipse at top right, rgba(30, 136, 229, 0.43) 0%, transparent 65%)",
-          pointerEvents: "none",
-        },
-        "&::after": {
-          content: '""',
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          width: "400px",
-          height: "300px",
-          background:
-            "radial-gradient(ellipse at bottom left, rgba(30, 136, 229, 0.55) 0%, transparent 70%)",
-          pointerEvents: "none",
-        },
-      }}
-    >
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-        <Grid container spacing={{ xs: 8, md: 12 }}>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <CustomChip
-              label="Our Mission"
-              icon={<RocketLaunch sx={{ fontSize: 14 }} />}
-            />
-            <Typography
-              component="h1"
-              sx={{
-                fontFamily: FontFamily.primary,
-                fontSize: { xs: "40px", md: "54px", lg: "5rem" },
-                fontWeight: 800,
-                lineHeight: 1.05,
-                letterSpacing: "-0.03em",
-                color: COLORS.dark,
-                mb: 3,
-                mt: 5,
-              }}
-            >
-              Transforming Lives Through
-              <Box component="br" />
-              <Box component="span" sx={{ display: { md: "none" } }}>
-                &nbsp;
-              </Box>
-              <Box component="span" sx={{ color: COLORS.primary }}>
-                Strategic Action .
-              </Box>
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "15px",
-                lineHeight: 1.8,
-                color: COLORS.neutral,
-                maxWidth: "500px",
-                mb: 3,
-              }}
-            >
-              A modern and credible platform fighting extreme poverty in Nigeria
-              through education, empowerment, and sustainable development.
-            </Typography>
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-              <CustomButton
-                to={"/auth/onboarding"}
-                variant="filled"
-                btncolor="primary"
-                radius="6px"
-                sx={{ width: "200px", py: 2, fontSize: "15px" }}
-              >
-                Support our work
-              </CustomButton>
-            </Stack>
-          </Grid>
+    <Box>
+      <AboutHero />
 
-          <Grid size={{ xs: 12, md: 6 }}>
+      <Box
+        sx={{
+          backgroundColor: COLORS.white,
+          py: { xs: "64px", sm: "80px", md: "100px" },
+        }}
+      >
+        <Container maxWidth="lg">
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", md: "row" },
+              alignItems: "flex-start",
+              gap: { xs: "40px", md: "80px" },
+            }}
+          >
             <Box
               sx={{
-                border: "1px solid #F3F4F6",
-                borderRadius: "20px",
-                bgcolor: "#FAFAFA",
+                flexShrink: 0,
+                width: { xs: "100%", md: "420px" },
               }}
             >
               <Box
                 component="img"
-                src="/about/about-hero.png"
-                alt="wuf"
+                src="/about/williams.jpg"
+                alt="Williams Uchemba"
                 sx={{
                   width: "100%",
-                  height: { xs: "auto", md: "auto" },
-                  borderRadius: "10px",
+                  height: { xs: "420px", md: "520px" },
+                  objectFit: "cover",
+                  objectPosition: "center top",
+                  borderRadius: "16px",
+                  display: "block",
                 }}
               />
             </Box>
-          </Grid>
-        </Grid>
-      </Container>
+
+            <Box
+              sx={{
+                flex: 1,
+                pt: { md: "12px" },
+              }}
+            >
+              <Typography
+                variant="h2"
+                sx={{
+                  fontFamily: FontFamily.primary,
+                  fontSize: { xs: "2rem", sm: "2.4rem", md: "2.75rem" },
+                  fontWeight: 800,
+                  color: COLORS.dark,
+                  lineHeight: 1.15,
+                  letterSpacing: "-0.025em",
+                  mb: 4,
+                }}
+              >
+                The Genesis: A Personal Mission Turned National Force
+              </Typography>
+
+              <Typography
+                sx={{
+                  fontFamily: FontFamily.accent ?? FontFamily.primary,
+                  fontSize: { xs: "0.95rem", md: "1rem" },
+                  lineHeight: 1.8,
+                  color: COLORS.neutral ?? "#555",
+                  mb: 3,
+                }}
+              >
+                What started as a personal conviction to help those in immediate
+                need has evolved into a structured, national movement for social
+                development. Witnessing the stark realities of poverty in
+                Nigeria, I realized that temporary relief, while necessary, was
+                not enough.
+              </Typography>
+
+              <Typography
+                sx={{
+                  fontFamily: FontFamily.accent ?? FontFamily.primary,
+                  fontSize: { xs: "0.95rem", md: "1rem" },
+                  lineHeight: 1.8,
+                  color: COLORS.neutral ?? "#555",
+                  mb: 3,
+                }}
+              >
+                The foundation was established to bridge the gap between intent
+                and impact. By applying professional governance and strategic
+                planning to grassroots initiatives, the WILLIAMS UCHEMBA
+                FOUNDATION has grown into a trusted institution capable of
+                executing large-scale projects across the country.
+              </Typography>
+
+              <Typography
+                sx={{
+                  fontFamily: FontFamily.accent ?? FontFamily.primary,
+                  fontSize: { xs: "0.95rem", md: "1rem" },
+                  lineHeight: 1.8,
+                  color: COLORS.neutral ?? "#555",
+                }}
+              >
+                Today, the WILLIAMS UCHEMBA FOUNDATION stands as a testament to
+                what is possible when compassion meets institutional rigor. We
+                don&apos;t just provide aid; we build systems that foster
+                independence and dignity for every Nigerian we serve.
+              </Typography>
+            </Box>
+          </Box>
+        </Container>
+      </Box>
+
+      <PillarSection />
+
+      <VisionSection />
+
+      <LeadershipSection />
+
+      <CommitmentSection />
+
+      <TrustSection />
+
+      <MovementSection />
     </Box>
   );
 };

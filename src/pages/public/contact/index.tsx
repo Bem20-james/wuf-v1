@@ -182,7 +182,7 @@ const ContactPage = () => {
                 border: "1px solid #F3F4F6",
                 borderRadius: "20px",
                 p: { xs: 4, md: 5 },
-                bgcolor: "#FAFAFA",
+                bgcolor: "#fafafac5",
               }}
             >
               <Stack spacing={4}>

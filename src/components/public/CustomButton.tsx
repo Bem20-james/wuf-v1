@@ -33,7 +33,7 @@ const CustomButton = styled(Link, {
     gap: "0.5rem",
     fontSize: "12px",
     borderRadius: radius,
-    padding: "10px 12px",
+    padding: "12px 16px",
     fontWeight: 500,
     transition: "all 0.3s ease-in-out",
     textDecoration: "none",
@@ -109,6 +109,12 @@ const CustomButton = styled(Link, {
         backgroundColor: "#B3E8FF",
         border: `1px solid ${COLORS.primary}`,
         color: COLORS.primary,
+      }),
+    ...(btncolor === "pure" &&
+      variant === "outlined" && {
+        backgroundColor: "transparent",
+        border: "1px solid #F1F4F9",
+        color: "#FFFFFF",
       }),
   }),
 );

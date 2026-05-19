@@ -36,6 +36,8 @@ const Header = () => {
   }, []);
 
   const impactBg = location.pathname.includes("/impact");
+  const darkTextRoutes = ["/about-us", "/contact-us"]; // adjust paths to match your actual routes
+  const isDarkTextRoute = darkTextRoutes.includes(location.pathname);
 
   return (
     <Box>
@@ -43,7 +45,11 @@ const Header = () => {
         position="fixed"
         elevation={0}
         sx={{
-          backgroundColor: !scroll && impactBg ? COLORS.white : "transparent",
+          backgroundColor: scroll
+            ? impactBg
+              ? "transparent"
+              : COLORS.white
+            : "transparent",
           backdropFilter: scroll ? "blur(12px)" : "none",
           borderBottom: scroll ? "1px solid rgba(255,255,255,0.05)" : "none",
           height: "70px",
@@ -94,14 +100,26 @@ const Header = () => {
                     to={item.path}
                     sx={{
                       textDecoration: "none",
-                      color: isActive ? COLORS.primary : COLORS.dark,
+                      color: isActive
+                        ? COLORS.primary
+                        : impactBg
+                          ? COLORS.white // impact page → always white (transparent bg)
+                          : scroll
+                            ? COLORS.dark // scrolled on any other page → dark on white bg
+                            : isDarkTextRoute
+                              ? COLORS.dark // about/contact unscrolled → dark
+                              : COLORS.white, // everywhere else unscrolled → white
                       fontWeight: 500,
                       fontSize: "0.86rem",
                       fontFamily: FontFamily.secondary,
                       transition: "all 0.3s ease",
                       position: "relative",
                       "&:hover": {
-                        color: isActive ? COLORS.offWhite : "#1E88E5",
+                        color: isActive
+                          ? COLORS.offWhite
+                          : isDarkTextRoute
+                            ? COLORS.offWhite
+                            : "#1E88E5",
                       },
                       "&::after": isActive
                         ? {
@@ -178,13 +196,15 @@ const Header = () => {
         anchor="right"
         open={mobileOpen}
         onClose={handleToggle}
-        PaperProps={{
-          sx: {
-            width: "100%",
-            maxWidth: 250,
-            backgroundColor: COLORS.primary,
-            color: "#FFFFFF",
-            p: 3,
+        slotProps={{
+          paper: {
+            sx: {
+              width: "100%",
+              maxWidth: 250,
+              backgroundColor: COLORS.primary,
+              color: "#FFFFFF",
+              p: 3,
+            },
           },
         }}
       >
@@ -217,9 +237,11 @@ const Header = () => {
               >
                 <ListItemText
                   primary={item.label}
-                  primaryTypographyProps={{
-                    fontSize: "1.1rem",
-                    fontWeight: 500,
+                  sx={{
+                    "& .MuiListItemText-primary": {
+                      fontSize: "1.1rem",
+                      fontWeight: 500,
+                    },
                   }}
                 />
               </ListItemButton>
