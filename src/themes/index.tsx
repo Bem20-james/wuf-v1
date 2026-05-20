@@ -115,39 +115,36 @@ const baseTheme = createTheme({
           fontSize: "12px",
         },
 
-        containedPrimary: {
-          background: "linear-gradient(135deg, #2196F3 0%, #1565C0 100%)",
-          color: "#FFFFFF",
-          boxShadow: "0 4px 16px rgba(33,150,243,0.25)",
-          "&:hover": {
-            background: "linear-gradient(135deg, #42A5F5 0%, #1E88E5 100%)",
-            boxShadow: "0 6px 22px rgba(33,150,243,0.38)",
-            transform: "translateY(-1px)",
+        contained: {
+          "&.MuiButton-containedPrimary": {
+            background: "linear-gradient(135deg, #2196F3 0%, #1565C0 100%)",
+            color: "#FFFFFF",
+            boxShadow: "0 4px 16px rgba(33,150,243,0.25)",
+            "&:hover": {
+              background: "linear-gradient(135deg, #42A5F5 0%, #1E88E5 100%)",
+              boxShadow: "0 6px 22px rgba(33,150,243,0.38)",
+              transform: "translateY(-1px)",
+            },
+            "&:active": { transform: "translateY(0px)" },
           },
-          "&:active": { transform: "translateY(0px)" },
-        },
-
-        containedSecondary: {
-          background: "rgba(255,255,255,0.06)",
-          color: "#FFF",
-          border: "1px solid rgba(255,255,255,0.12)",
-
-          "&:hover": {
-            background: "rgba(255,255,255,0.10)",
+          "&.MuiButton-containedSecondary": {
+            background: "rgba(255,255,255,0.06)",
+            color: "#FFF",
+            border: "1px solid rgba(255,255,255,0.12)",
+            "&:hover": {
+              background: "rgba(255,255,255,0.10)",
+            },
           },
-        },
-
-        containedError: {
-          background: "linear-gradient(135deg,#E53935 0%,#B71C1C 100%)",
-          color: "#FFF",
-        },
-
-        containedInfo: {
-          background: "linear-gradient(135deg,#2196F3 0%,#1565C0 100%)",
-          color: "#FFF",
-
-          "&:hover": {
-            background: "linear-gradient(135deg,#42A5F5 0%,#1E88E5 100%)",
+          "&.MuiButton-containedError": {
+            background: "linear-gradient(135deg,#E53935 0%,#B71C1C 100%)",
+            color: "#FFF",
+          },
+          "&.MuiButton-containedInfo": {
+            background: "linear-gradient(135deg,#2196F3 0%,#1565C0 100%)",
+            color: "#FFF",
+            "&:hover": {
+              background: "linear-gradient(135deg,#42A5F5 0%,#1E88E5 100%)",
+            },
           },
         },
       },

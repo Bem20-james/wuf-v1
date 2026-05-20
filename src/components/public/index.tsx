@@ -9,7 +9,6 @@ export { default as ProgramsSection } from "./ProgramsSection";
 export { default as BottomHero } from "./BottomHero";
 export { default as PillarSection } from "./PillarsSection";
 export { default as AboutHero } from "./AboutHero";
-export { default as ImpactStats } from "./ImpactStats";
 export { default as ImpactHero } from "./ImpactHero";
 export { default as CommitmentSection } from "./Commitment";
 export { default as VisionSection } from "./VisionSection";
