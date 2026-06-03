@@ -6,6 +6,8 @@ import {
   ContactPage,
   HomePage,
   ImpactPage,
+  DonatePage,
+  VolunteerPage,
 } from "../pages/public";
 
 const PublicRoutes = () => {
@@ -17,6 +19,8 @@ const PublicRoutes = () => {
         <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/impact" element={<ImpactPage />} />
         <Route path="/contact-us" element={<ContactPage />} />
+        <Route path="/donate" element={<DonatePage />} />
+        <Route path="/volunteer" element={<VolunteerPage />} />
       </Routes>
     </PublicLayout>
   );

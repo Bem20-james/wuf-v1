@@ -15,3 +15,4 @@ export { default as VisionSection } from "./VisionSection";
 export { default as LeadershipSection } from "./LeadershipSection";
 export { default as MovementSection } from "./Movement";
 export { default as TrustSection } from "./Trust";
+export { default as SuccessScreen } from "./SuccessScreen";

@@ -36,7 +36,7 @@ const Header = () => {
   }, []);
 
   const impactBg = location.pathname.includes("/impact");
-  const darkTextRoutes = ["/about-us", "/contact-us"]; // adjust paths to match your actual routes
+  const darkTextRoutes = ["/about-us", "/contact-us", "/donate"];
   const isDarkTextRoute = darkTextRoutes.includes(location.pathname);
 
   return (
@@ -144,7 +144,7 @@ const Header = () => {
             <Stack direction={"row"} spacing={1}>
               <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
                 <CustomButton
-                  to={"/auth/login"}
+                  to={"/donate"}
                   radius="6px"
                   fullWidth
                   variant={"filled"}
@@ -157,7 +157,7 @@ const Header = () => {
                   Donate
                 </CustomButton>
                 <CustomButton
-                  to={"/auth/onboarding"}
+                  to={"/volunteer"}
                   radius="6px"
                   fullWidth
                   variant={"filled"}

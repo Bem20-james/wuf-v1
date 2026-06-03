@@ -260,7 +260,7 @@ const ProgramsSection: React.FC = () => {
               lineHeight: 1.75,
             }}
           >
-            Four pillars driving sustainable change — from immediate relief to
+            pillars driving sustainable change — from immediate relief to
             long-term community transformation across Nigeria.
           </Typography>
         </Stack>

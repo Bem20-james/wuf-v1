@@ -43,11 +43,11 @@ const VisionSection = () => {
             >
               <Box
                 component="img"
-                src="/about/about-hero.png"
+                src="/impact/hero-bg-img.png"
                 alt="Williams Uchemba Foundation"
                 sx={{
                   width: "100%",
-                  height: { xs: "420px", md: "520px" },
+                  height: { xs: "420px", md: "550px" },
                   objectFit: "cover",
                   objectPosition: "center top",
                   display: "block",

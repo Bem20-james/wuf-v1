@@ -6,13 +6,17 @@ interface LayoutProps {
 }
 
 function PublicLayout({ children }: LayoutProps) {
+  const noLayoutRoutes = ["/volunteer"];
+  const currentPath = window.location.pathname;
+  const showHeader = !noLayoutRoutes.includes(currentPath);
+
   return (
     <>
       <Box sx={{ width: "100%" }}>
-        <Header />
+        {showHeader && <Header />}
 
         {children}
-        <Footer />
+        {showHeader && <Footer />}
       </Box>
     </>
   );
