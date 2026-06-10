@@ -35,8 +35,8 @@ const AwareSection = ({
             <Typography
               component="h2"
               sx={{
-                color: COLORS.secondary,
-                fontSize: { xs: "32px", md: "3rem" },
+                color: COLORS.black,
+                fontSize: { xs: "2rem", md: "3rem" },
                 fontWeight: 700,
                 letterSpacing: "-0.8px",
               }}
@@ -45,9 +45,10 @@ const AwareSection = ({
             </Typography>
             <Typography
               sx={{
-                color: COLORS.secondary,
-                maxWidth: 560,
+                color: COLORS.neutral,
+                maxWidth: 660,
                 lineHeight: 1.75,
+                fontSize: { xs: "0.90rem", md: "1rem" },
               }}
             >
               {desc}

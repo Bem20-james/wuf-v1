@@ -73,8 +73,68 @@ const Footer = () => {
           spacing={{ xs: 3, md: 2.5 }}
           sx={{ pb: { xs: 5, md: 6 } }}
         >
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+            <Box
+              onClick={() => navigate("/")}
+              sx={{
+                cursor: "pointer",
+                display: "inline-block",
+                mb: 1.5,
+                transition: "opacity 0.2s",
+                "&:hover": { opacity: 0.85 },
+              }}
+            >
+              <Box
+                component="img"
+                src="/logo.png"
+                alt="Williams Uchemba Foundation"
+                sx={{ width: 150, height: "auto" }}
+              />
+            </Box>
+            <Typography
+              sx={{
+                fontSize: "13px",
+                color: "#6b7280",
+                lineHeight: 1.7,
+                mb: 2.5,
+                maxWidth: 220,
+              }}
+            >
+              Restoring hope and empowering lives — one community at a time.
+            </Typography>
+            <Stack direction="row" spacing={1}>
+              {socials.map(({ label, icon: Icon }) => (
+                <Box
+                  key={label}
+                  sx={{
+                    width: 34,
+                    height: 34,
+                    borderRadius: "50%",
+                    border: "1.5px solid #e5e7eb",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    transition: "all 0.2s",
+                    "&:hover": { borderColor: "#1E88E5", bgcolor: "#1E88E5" },
+                    "&:hover .soc-icon": { color: "#fff" },
+                  }}
+                >
+                  <Icon
+                    className="soc-icon"
+                    size={15}
+                    style={{
+                      color: COLORS.secondary,
+                      transition: "color 0.2s",
+                    }}
+                  />
+                </Box>
+              ))}
+            </Stack>
+          </Grid>
+
           {footerColumns.map((col) => (
-            <Grid size={{ xs: 6, sm: 4, md: 2 }} key={col.heading}>
+            <Grid size={{ xs: 6, sm: 4, md: 3 }} key={col.heading}>
               <Typography
                 sx={{
                   fontSize: "10px",
@@ -103,80 +163,13 @@ const Footer = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: 2,
-          }}
-        >
-          <Box
-            onClick={() => navigate("/")}
-            sx={{
-              cursor: "pointer",
-              transition: "opacity 0.2s",
-              "&:hover": { opacity: 0.85 },
-            }}
-          >
-            <Box
-              component="img"
-              src="/logo.png"
-              alt="Vantoria"
-              sx={{
-                width: { xs: 40, md: 250 },
-                height: { xs: "auto", md: "auto" },
-              }}
-            />
-          </Box>
-
-          <Stack direction="row" spacing={1.25}>
-            {socials.map(({ label, icon: Icon }) => (
-              <Box
-                key={label}
-                sx={{
-                  width: 36,
-                  height: 36,
-                  borderRadius: "50%",
-                  border: "1.5px solid #e5e7eb",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  cursor: "pointer",
-                  transition: "all 0.2s",
-                  "&:hover": {
-                    borderColor: "#1E88E5",
-                    bgcolor: "#1E88E5",
-                    color: "#fff",
-                  },
-                  "&:hover .soc-icon": {
-                    color: "#fff",
-                  },
-                }}
-              >
-                <Icon
-                  className="soc-icon"
-                  size={16}
-                  style={{
-                    color: COLORS.secondary,
-                    transition: "color 0.2s",
-                  }}
-                />
-              </Box>
-            ))}
-          </Stack>
-        </Box>
-
-        <Divider sx={{ borderColor: "#f0f0f0" }} />
-
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
             py: 2.25,
             flexWrap: "wrap",
             gap: 1.5,
           }}
         >
           <Typography sx={{ color: "#9ca3af", fontSize: "12px" }}>
-            © 2026 Vantoria. All rights reserved.
+            © 2026 Williams Uchemba Foundation. All rights reserved.
           </Typography>
 
           <Stack direction="row" spacing={2.5}>

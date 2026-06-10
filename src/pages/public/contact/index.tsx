@@ -150,7 +150,7 @@ const ContactPage = () => {
                 letterSpacing: "-0.03em",
                 color: COLORS.dark,
                 mb: 3,
-                mt: 5,
+                mt: 3,
               }}
             >
               Let's talk
@@ -166,12 +166,12 @@ const ContactPage = () => {
                 lineHeight: 1.8,
                 color: COLORS.black,
                 maxWidth: "500px",
-                mb: 6,
+                mb: 3,
               }}
             >
-              Whether you're a brand looking for verified creators, a creator
-              ready to scale, or an agency exploring partnerships — we want to
-              hear from you.
+              Have a question, want to get involved, or looking to support our
+              cause? Reach out to us — we&apos;re here to connect, listen, and
+              help you become part of the impact we&apos;re making.
             </Typography>
             <ContactItem />
           </Grid>
@@ -183,6 +183,7 @@ const ContactPage = () => {
                 borderRadius: "20px",
                 p: { xs: 4, md: 5 },
                 bgcolor: "#fafafac5",
+                boxShadow: "0 6px 22px rgba(0,0,0,0.22)",
               }}
             >
               <Stack spacing={4}>
@@ -232,9 +233,9 @@ const ContactPage = () => {
                   }}
                 >
                   <Typography
-                    sx={{ fontSize: "12px", color: "#9CA3AF", maxWidth: 220 }}
+                    sx={{ fontSize: "11px", color: "#9CA3AF", maxWidth: 320 }}
                   >
-                    We never share your data. Read our
+                    We never share your data. Read our&nbsp;
                     <Box
                       component="span"
                       sx={{
@@ -257,7 +258,7 @@ const ContactPage = () => {
                       px: 4,
                       py: 1.6,
                       borderRadius: "50px",
-                      bgcolor: loading ? "#9CA3AF" : COLORS.secondary,
+                      bgcolor: loading ? "#9CA3AF" : COLORS.primary,
                       color: "#fff",
                       fontSize: "13px",
                       fontWeight: 600,

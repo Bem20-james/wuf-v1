@@ -16,3 +16,10 @@ export { default as LeadershipSection } from "./LeadershipSection";
 export { default as MovementSection } from "./Movement";
 export { default as TrustSection } from "./Trust";
 export { default as SuccessScreen } from "./SuccessScreen";
+export { default as StoriesSection } from "./StoriesSection";
+
+// export { default as PartnerSection } from "./PartnerSection";
+// export { default as CtaBanner } from "./CtaBanner";
+export { default as ImpactBanner } from "./ImpactBanner";
+export { default as TestimonialCarousel } from "./TestimonialCarousel";
+export { default as TransparencySection } from "./TransparencySection";

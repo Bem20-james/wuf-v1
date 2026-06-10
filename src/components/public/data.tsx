@@ -28,58 +28,33 @@ export const navItems = [
 
 export const footerColumns = [
   {
-    heading: "Product",
+    heading: "Our Programmes",
     links: [
-      "How it works",
-      "For Creators",
-      "For Brands",
-      "Campaign tools",
-      "Analytics",
-      "Marketplace",
+      "Poverty Alleviation",
+      "Education for All",
+      "Family Empowerment",
+      "Community Development",
+      "Healthcare Access",
     ],
   },
   {
-    heading: "Creators",
+    heading: "Get Involved",
     links: [
-      "Join as Creator",
-      "Verification",
-      "Earn & Withdraw",
-      "Creator dashboard",
-      "Portfolio builder",
+      "Donate Now",
+      "Volunteer",
+      "Corporate Partnerships",
+      "Fundraise for Us",
+      "Refer a Beneficiary",
     ],
   },
   {
-    heading: "Brands",
+    heading: "Organisation",
     links: [
-      "Start a campaign",
-      "Find talent",
-      "Escrow payments",
-      "Brand dashboard",
-      "Case studies",
-    ],
-  },
-  {
-    heading: "Pricing",
-    links: [
-      "Plans overview",
-      "Creator plans",
-      "Brand plans",
-      "Enterprise",
-      "Compare plans",
-    ],
-  },
-  {
-    heading: "Company",
-    links: ["About us", "Blog", "Careers", "Press kit", "Contact us"],
-  },
-  {
-    heading: "Support",
-    links: [
-      "Help center",
-      "Community",
-      "System status",
-      "Trust & Safety",
-      "Report abuse",
+      "About Us",
+      "Our Impact",
+      "Board & Governance",
+      "Audited Financials",
+      "Contact Us",
     ],
   },
 ];
@@ -249,12 +224,12 @@ export const stats: StatItem[] = [
   {
     icon: FaUsers,
     label: "Lives Impacted",
-    value: "1.2M+",
+    value: "1M+",
   },
   {
     icon: FaMap,
     label: "States Covered",
-    value: "36 + FCT",
+    value: "21 + FCT",
   },
   {
     icon: FaMoneyCheckAlt,
@@ -264,7 +239,7 @@ export const stats: StatItem[] = [
   {
     icon: FaHandshake,
     label: "Active Partners",
-    value: "85+",
+    value: "70+",
   },
 ];
 
@@ -297,5 +272,74 @@ export const boardMembers: BoardMember[] = [
     roleColor: COLORS.primary,
     bio: "Specialist in infrastructural development and logistics management, ensuring project execution excellence.",
     image: "/about/img4.png",
+  },
+];
+
+interface Testimonial {
+  id: number;
+  quote: string;
+  name: string;
+  role: string;
+  location: string;
+  avatar: string;
+  programme: string;
+  color?: string;
+}
+
+export const testimonials: Testimonial[] = [
+  {
+    id: 1,
+    quote:
+      "Before this programme, I was selling groundnuts by the roadside just to feed my children. They gave me a grant, training, and a support system. Today I run a small provisions store and my three children are all in school. I never imagined this was possible for someone like me.",
+    name: "Adaeze Okoro",
+    role: "Small Business Owner",
+    location: "Enugu State",
+    avatar: "/impact/user.png",
+    programme: "Economic Infrastructure",
+    color: "#F0C8D8",
+  },
+  {
+    id: 2,
+    quote:
+      "My son was on the streets for two years. I had lost hope. After he was enrolled in the youth programme, I saw a completely different child — focused, fed, and with a future. This organisation gave us back something I thought was gone forever.",
+    name: "Rashida Musa",
+    role: "Parent & Community Volunteer",
+    location: "Kano State",
+    avatar: "/impact/user.png",
+    programme: "Education & Youth",
+    color: "#C8D8F0",
+  },
+  {
+    id: 3,
+    quote:
+      "The food distribution programme didn't just feed us during a very hard season — it brought the whole community together. People started talking, cooperating, and eventually formed a cooperative. That cooperation is still going strong.",
+    name: "Emmanuel Afolabi",
+    role: "Cooperative Founder",
+    location: "Ogun State",
+    avatar: "/impact/user.png",
+    programme: "Food Security",
+    color: "#C8E6D0",
+  },
+  {
+    id: 4,
+    quote:
+      "I had given up on ever seeing a doctor — the nearest clinic was 40 kilometres away. When the health outpost opened in our village, I was the first in line. They found a condition I didn't know I had and treated it. Today I am healthy and I volunteer there every weekend.",
+    name: "Hajiya Bintu Sule",
+    role: "Community Health Volunteer",
+    location: "Kebbi State",
+    avatar: "/impact/user.png",
+    programme: "Healthcare Access",
+    color: "#F0DCC8",
+  },
+  {
+    id: 5,
+    quote:
+      "My daughter dropped out after JSS1 — we simply could not afford the fees. The scholarship programme not only paid her fees but provided books, uniforms, and mentorship. She just wrote her WAEC and scored distinctions. I wept the day the results came out.",
+    name: "Peter Nwachukwu",
+    role: "Father & Farmer",
+    location: "Anambra State",
+    avatar: "/impact/user.png",
+    programme: "Education & Youth",
+    color: "#DCC8F0",
   },
 ];

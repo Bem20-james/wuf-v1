@@ -14,6 +14,7 @@ const StatCard: React.FC<StatItem> = ({ icon: Icon, label, value }) => (
       display: "flex",
       flexDirection: "column",
       gap: "10px",
+      boxShadow: "0 6px 22px rgba(0,0,0,0.22)",
     }}
   >
     <Box
@@ -60,7 +61,7 @@ const ImpactHero = () => {
     <Box
       sx={{
         position: "relative",
-        overflow: "visible", // let the stats bar bleed out
+        overflow: "visible",
       }}
     >
       <Box
@@ -165,7 +166,7 @@ const ImpactHero = () => {
                   radius="6px"
                   sx={{ width: "200px", py: 2 }}
                 >
-                  Get Started for free
+                  Support our work
                 </CustomButton>
               </Stack>
             </Box>

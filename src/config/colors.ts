@@ -1,3 +1,11 @@
+export const Pallete = {
+  main: "#0B50DA",
+  light: "#3B7BFF",
+  white: "#D6E4FF",
+  dark: "#083AA0",
+  black: "#052766",
+};
+
 export const COLORS = {
   accent: "#D4AF37",
   primary: "#0B50DA",
