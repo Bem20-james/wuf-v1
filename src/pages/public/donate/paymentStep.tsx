@@ -11,19 +11,58 @@ import {
   InputAdornment,
   Paper,
 } from "@mui/material";
+import React from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import { COLORS } from "../../../config/colors";
+import { type DonationFrequency } from "./amountStep";
 
-const StepPayment = ({ data, onChange, amount, frequency }) => {
-  const methods = [
-    { id: "card", label: "Debit / Credit Card", icon: <CreditCardIcon /> },
-    { id: "transfer", label: "Bank Transfer", icon: <AccountBalanceIcon /> },
-    { id: "ussd", label: "USSD / Mobile Money", icon: <PhoneAndroidIcon /> },
-  ];
+export type PaymentMethod = "card" | "transfer" | "ussd";
 
+export type StepPaymentData = {
+  method: PaymentMethod;
+  cardNumber: string;
+  expiry: string;
+  cvv: string;
+  cardName: string;
+};
+
+type PaymentMethodOption = {
+  id: PaymentMethod;
+  label: string;
+  icon: React.ReactNode;
+};
+
+type BankDetailRow = [string, string];
+
+type StepPaymentProps = {
+  data: StepPaymentData;
+  onChange: (value: Partial<StepPaymentData>) => void;
+  amount?: number | string;
+  frequency?: DonationFrequency;
+};
+
+const PAYMENT_METHODS: PaymentMethodOption[] = [
+  { id: "card", label: "Debit / Credit Card", icon: <CreditCardIcon /> },
+  { id: "transfer", label: "Bank Transfer", icon: <AccountBalanceIcon /> },
+  { id: "ussd", label: "USSD / Mobile Money", icon: <PhoneAndroidIcon /> },
+];
+
+const BANK_DETAILS: BankDetailRow[] = [
+  ["Bank", "Guaranty Trust Bank"],
+  ["Account Name", "Williams Uchemba Foundation"],
+  ["Account Number", "0123456789"],
+  ["Reference", `WUF-${Date.now().toString().slice(-6)}`],
+];
+
+const StepPayment: React.FC<StepPaymentProps> = ({
+  data,
+  onChange,
+  amount,
+  frequency,
+}) => {
   return (
     <Box>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
@@ -32,8 +71,8 @@ const StepPayment = ({ data, onChange, amount, frequency }) => {
 
       {/* Method selector */}
       <Grid container spacing={1.5} sx={{ mb: 3 }}>
-        {methods.map((m, i) => (
-          <Grid size={{ xs: 12 }} key={i}>
+        {PAYMENT_METHODS.map((m) => (
+          <Grid size={{ xs: 12 }} key={m.id}>
             <Card
               onClick={() => onChange({ method: m.id })}
               sx={{
@@ -84,7 +123,9 @@ const StepPayment = ({ data, onChange, amount, frequency }) => {
               label="Card Number"
               placeholder="1234 5678 9012 3456"
               value={data.cardNumber}
-              onChange={(e) => onChange({ cardNumber: e.target.value })}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                onChange({ cardNumber: e.target.value })
+              }
               slotProps={{
                 input: {
                   startAdornment: (
@@ -102,7 +143,9 @@ const StepPayment = ({ data, onChange, amount, frequency }) => {
               label="Expiry Date"
               placeholder="MM / YY"
               value={data.expiry}
-              onChange={(e) => onChange({ expiry: e.target.value })}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                onChange({ expiry: e.target.value })
+              }
             />
           </Grid>
           <Grid size={{ xs: 12, sm: 6 }}>
@@ -112,7 +155,9 @@ const StepPayment = ({ data, onChange, amount, frequency }) => {
               placeholder="···"
               type="password"
               value={data.cvv}
-              onChange={(e) => onChange({ cvv: e.target.value })}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                onChange({ cvv: e.target.value })
+              }
             />
           </Grid>
           <Grid size={{ xs: 12 }}>
@@ -120,7 +165,9 @@ const StepPayment = ({ data, onChange, amount, frequency }) => {
               fullWidth
               label="Cardholder Name"
               value={data.cardName}
-              onChange={(e) => onChange({ cardName: e.target.value })}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                onChange({ cardName: e.target.value })
+              }
             />
           </Grid>
         </Grid>
@@ -139,12 +186,7 @@ const StepPayment = ({ data, onChange, amount, frequency }) => {
           <Typography variant="body2" sx={{ fontWeight: 700, mb: 1.5 }}>
             Transfer to this account:
           </Typography>
-          {[
-            ["Bank", "Guaranty Trust Bank"],
-            ["Account Name", "Williams Uchemba Foundation"],
-            ["Account Number", "0123456789"],
-            ["Reference", `WUF-${Date.now().toString().slice(-6)}`],
-          ].map(([k, v]) => (
+          {BANK_DETAILS.map(([k, v]) => (
             <Box
               key={k}
               sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}
@@ -182,7 +224,7 @@ const StepPayment = ({ data, onChange, amount, frequency }) => {
           </Typography>
           <Typography variant="caption" color="text.secondary">
             Follow the prompts and enter amount: ₦
-            {Number(amount || 0).toLocaleString()}
+            {Number(amount ?? 0).toLocaleString()}
           </Typography>
         </Paper>
       )}
@@ -205,7 +247,7 @@ const StepPayment = ({ data, onChange, amount, frequency }) => {
             Donation amount
           </Typography>
           <Typography variant="body2" sx={{ fontWeight: 700 }}>
-            ₦{Number(amount || 0).toLocaleString()}
+            ₦{Number(amount ?? 0).toLocaleString()}
           </Typography>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0.8 }}>
@@ -239,7 +281,7 @@ const StepPayment = ({ data, onChange, amount, frequency }) => {
             variant="body2"
             sx={{ fontWeight: 800, color: COLORS.primary }}
           >
-            ₦{Number(amount || 0).toLocaleString()}
+            ₦{Number(amount ?? 0).toLocaleString()}
           </Typography>
         </Box>
       </Box>

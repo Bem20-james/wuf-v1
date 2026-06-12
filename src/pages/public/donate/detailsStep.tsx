@@ -10,9 +10,42 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  type SelectChangeEvent,
 } from "@mui/material";
+import React from "react";
 
-const StepDetails = ({ data, onChange }) => {
+export type StepDetailsData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  state: string;
+  message: string;
+  anonymous: boolean;
+  newsletter: boolean;
+};
+
+type StepDetailsProps = {
+  data: StepDetailsData;
+  onChange: (value: Partial<StepDetailsData>) => void;
+};
+
+const NIGERIAN_STATES = [
+  "Lagos",
+  "Abuja",
+  "Rivers",
+  "Kano",
+  "Oyo",
+  "Enugu",
+  "Delta",
+  "Other",
+] as const;
+
+const StepDetails: React.FC<StepDetailsProps> = ({ data, onChange }) => {
+  const handleStateChange = (e: SelectChangeEvent<string>): void => {
+    onChange({ state: e.target.value });
+  };
+
   return (
     <Box>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
@@ -24,7 +57,9 @@ const StepDetails = ({ data, onChange }) => {
             fullWidth
             label="First Name"
             value={data.firstName}
-            onChange={(e) => onChange({ firstName: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChange({ firstName: e.target.value })
+            }
             required
           />
         </Grid>
@@ -33,7 +68,9 @@ const StepDetails = ({ data, onChange }) => {
             fullWidth
             label="Last Name"
             value={data.lastName}
-            onChange={(e) => onChange({ lastName: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChange({ lastName: e.target.value })
+            }
             required
           />
         </Grid>
@@ -43,7 +80,9 @@ const StepDetails = ({ data, onChange }) => {
             label="Email Address"
             type="email"
             value={data.email}
-            onChange={(e) => onChange({ email: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChange({ email: e.target.value })
+            }
             required
             helperText="Your receipt and impact updates will be sent here"
           />
@@ -54,7 +93,9 @@ const StepDetails = ({ data, onChange }) => {
             label="Phone Number"
             type="tel"
             value={data.phone}
-            onChange={(e) => onChange({ phone: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChange({ phone: e.target.value })
+            }
             slotProps={{
               input: {
                 startAdornment: (
@@ -67,21 +108,12 @@ const StepDetails = ({ data, onChange }) => {
         <Grid size={{ xs: 12 }}>
           <FormControl fullWidth>
             <InputLabel>State</InputLabel>
-            <Select
+            <Select<string>
               value={data.state}
               label="State"
-              onChange={(e) => onChange({ state: e.target.value })}
+              onChange={handleStateChange}
             >
-              {[
-                "Lagos",
-                "Abuja",
-                "Rivers",
-                "Kano",
-                "Oyo",
-                "Enugu",
-                "Delta",
-                "Other",
-              ].map((s) => (
+              {NIGERIAN_STATES.map((s) => (
                 <MenuItem key={s} value={s}>
                   {s}
                 </MenuItem>
@@ -97,7 +129,9 @@ const StepDetails = ({ data, onChange }) => {
             label="Message (optional)"
             placeholder="Share why you're giving today..."
             value={data.message}
-            onChange={(e) => onChange({ message: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChange({ message: e.target.value })
+            }
           />
         </Grid>
         <Grid size={{ xs: 12 }}>
@@ -105,7 +139,9 @@ const StepDetails = ({ data, onChange }) => {
             control={
               <Checkbox
                 checked={data.anonymous}
-                onChange={(e) => onChange({ anonymous: e.target.checked })}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  onChange({ anonymous: e.target.checked })
+                }
                 color="primary"
               />
             }
@@ -121,7 +157,9 @@ const StepDetails = ({ data, onChange }) => {
             control={
               <Checkbox
                 checked={data.newsletter}
-                onChange={(e) => onChange({ newsletter: e.target.checked })}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  onChange({ newsletter: e.target.checked })
+                }
                 color="primary"
                 defaultChecked
               />

@@ -7,19 +7,46 @@ import {
   Card,
   CardContent,
   Grid,
-  Chip,
   Avatar,
   InputAdornment,
   Alert,
 } from "@mui/material";
+import React from "react";
 import StarIcon from "@mui/icons-material/Star";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { COLORS } from "../../../config/colors";
 import { DONATION_OPTIONS } from "./data";
 
-const StepAmount = ({ data, onChange }) => {
+export type DonationFrequency = "one-time" | "monthly";
+
+export type DonationAmountData = {
+  frequency: DonationFrequency;
+  selected: number | null;
+  custom: string;
+};
+
+type Props = {
+  data: DonationAmountData;
+  onChange: (patch: Partial<DonationAmountData>) => void;
+};
+
+const StepAmount: React.FC<Props> = ({ data, onChange }) => {
   const { frequency, selected, custom } = data;
-  const handleCard = (amt) => onChange({ selected: amt, custom: "" });
+
+  const handleCard = (amt: number): void =>
+    onChange({ selected: amt, custom: "" });
+
+  const handleFrequencyChange = (
+    _event: React.MouseEvent<HTMLElement>,
+    value: DonationFrequency | null,
+  ): void => {
+    if (value) onChange({ frequency: value });
+  };
+
+  const handleCustomChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const val = e.target.value.replace(/[^0-9.]/g, "");
+    onChange({ custom: val, selected: null });
+  };
 
   return (
     <Box>
@@ -30,7 +57,7 @@ const StepAmount = ({ data, onChange }) => {
       <ToggleButtonGroup
         value={frequency}
         exclusive
-        onChange={(_, v) => v && onChange({ frequency: v })}
+        onChange={handleFrequencyChange}
         fullWidth
         sx={{
           mb: 3,
@@ -54,7 +81,6 @@ const StepAmount = ({ data, onChange }) => {
         <ToggleButton value="monthly">Monthly</ToggleButton>
       </ToggleButtonGroup>
 
-      {/* Preset cards */}
       <Grid container spacing={2} sx={{ mb: 3 }}>
         {DONATION_OPTIONS.map((opt) => (
           <Grid size={{ xs: 12, sm: 4 }} key={opt.amount}>
@@ -124,7 +150,6 @@ const StepAmount = ({ data, onChange }) => {
         ))}
       </Grid>
 
-      {/* Custom input */}
       <Typography
         variant="body2"
         sx={{ mb: 1, color: COLORS.secondary, fontWeight: 600 }}
@@ -135,10 +160,7 @@ const StepAmount = ({ data, onChange }) => {
         fullWidth
         placeholder="0.00"
         value={custom}
-        onChange={(e) => {
-          const val = e.target.value.replace(/[^0-9.]/g, "");
-          onChange({ custom: val, selected: null });
-        }}
+        onChange={handleCustomChange}
         slotProps={{
           input: {
             startAdornment: (

@@ -12,31 +12,37 @@ import {
   Grid,
   CircularProgress,
 } from "@mui/material";
+import React from "react";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import LockIcon from "@mui/icons-material/Lock";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { CustomChip, SuccessScreen } from "../../../components/public";
-import StepAmount from "./amountStep";
-import StepDetails from "./detailsStep";
-import StepPayment from "./paymentStep";
+import StepAmount, {
+  type DonationAmountData,
+  type DonationFrequency,
+} from "./amountStep";
+import StepDetails, { type StepDetailsData } from "./detailsStep";
+import StepPayment, { type StepPaymentData } from "./paymentStep";
 import TransparencySidebar from "./sideBar";
 import { COLORS } from "../../../config/colors";
 import { FontFamily } from "../../../config/fonts";
 
-const STEPS = ["Amount", "Details", "Payment"];
+const STEPS = ["Amount", "Details", "Payment"] as const;
+type Step = (typeof STEPS)[number];
 
-const DonatePage = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [done, setDone] = useState(false);
+const DonatePage: React.FC = () => {
+  const [activeStep, setActiveStep] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [done, setDone] = useState<boolean>(false);
 
-  const [amountData, setAmountData] = useState({
+  const [amountData, setAmountData] = useState<DonationAmountData>({
     frequency: "one-time",
     selected: null,
     custom: "",
   });
-  const [detailsData, setDetailsData] = useState({
+
+  const [detailsData, setDetailsData] = useState<StepDetailsData>({
     firstName: "",
     lastName: "",
     email: "",
@@ -46,7 +52,8 @@ const DonatePage = () => {
     anonymous: false,
     newsletter: true,
   });
-  const [paymentData, setPaymentData] = useState({
+
+  const [paymentData, setPaymentData] = useState<StepPaymentData>({
     method: "card",
     cardNumber: "",
     expiry: "",
@@ -54,16 +61,21 @@ const DonatePage = () => {
     cardName: "",
   });
 
-  const finalAmount = amountData.custom || amountData.selected || 0;
+  const finalAmount: number | string =
+    amountData.custom || amountData.selected || 0;
 
-  const canNext = () => {
+  const canNext = (): boolean => {
     if (activeStep === 0) return !!finalAmount && Number(finalAmount) > 0;
     if (activeStep === 1)
-      return detailsData.firstName && detailsData.lastName && detailsData.email;
+      return !!(
+        detailsData.firstName &&
+        detailsData.lastName &&
+        detailsData.email
+      );
     return true;
   };
 
-  const handleNext = () => {
+  const handleNext = (): void => {
     if (activeStep === STEPS.length - 1) {
       setLoading(true);
       setTimeout(() => {
@@ -75,8 +87,10 @@ const DonatePage = () => {
     }
   };
 
-  const merge = (setter) => (patch) =>
-    setter((prev) => ({ ...prev, ...patch }));
+  const merge =
+    <T extends object>(setter: React.Dispatch<React.SetStateAction<T>>) =>
+    (patch: Partial<T>): void =>
+      setter((prev) => ({ ...prev, ...patch }));
 
   return (
     <Box
@@ -165,7 +179,7 @@ const DonatePage = () => {
                     },
                   }}
                 >
-                  {STEPS.map((s) => (
+                  {STEPS.map((s: Step) => (
                     <Step key={s}>
                       <StepLabel>{s}</StepLabel>
                     </Step>
@@ -190,8 +204,8 @@ const DonatePage = () => {
                       <StepPayment
                         data={paymentData}
                         onChange={merge(setPaymentData)}
-                        amount={finalAmount}
-                        frequency={amountData.frequency}
+                        amount={Number(finalAmount)}
+                        frequency={amountData.frequency as DonationFrequency}
                       />
                     )}
 

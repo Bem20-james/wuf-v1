@@ -5,21 +5,39 @@ import {
   Card,
   CardContent,
   LinearProgress,
-  Avatar,
 } from "@mui/material";
-import VerifiedIcon from "@mui/icons-material/Verified";
-import LockIcon from "@mui/icons-material/Lock";
+import React from "react";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
-import StarIcon from "@mui/icons-material/Star";
 import { FontFamily } from "../../../config/fonts";
 import { COLORS } from "../../../config/colors";
 
-const TransparencySidebar = () => {
+type FundAllocationItem = {
+  label: string;
+  sub: string;
+  pct: number;
+  color: string;
+};
+
+const FUND_ALLOCATION: FundAllocationItem[] = [
+  {
+    label: "Programs",
+    sub: "Direct field implementation",
+    pct: 90,
+    color: "#1A56DB",
+  },
+  {
+    label: "Operations",
+    sub: "Essential admin & fundraising",
+    pct: 10,
+    color: "#E2E8F0",
+  },
+];
+
+const TransparencySidebar: React.FC = () => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}>
-      {/* Impact Donut */}
       <Card>
         <CardContent>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2.5 }}>
@@ -29,7 +47,6 @@ const TransparencySidebar = () => {
             </Typography>
           </Box>
 
-          {/* Visual percentage bar */}
           <Box sx={{ textAlign: "center", mb: 2 }}>
             <Box
               sx={{
@@ -80,20 +97,7 @@ const TransparencySidebar = () => {
             </Box>
           </Box>
 
-          {[
-            {
-              label: "Programs",
-              sub: "Direct field implementation",
-              pct: 90,
-              color: "#1A56DB",
-            },
-            {
-              label: "Operations",
-              sub: "Essential admin & fundraising",
-              pct: 10,
-              color: "#E2E8F0",
-            },
-          ].map((item) => (
+          {FUND_ALLOCATION.map((item) => (
             <Box key={item.label} sx={{ mb: 1.5 }}>
               <Box
                 sx={{
@@ -137,7 +141,6 @@ const TransparencySidebar = () => {
             </Box>
           ))}
 
-          {/* Quote */}
           <Box
             sx={{
               mt: 2,

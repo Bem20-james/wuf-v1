@@ -1,9 +1,26 @@
+/* eslint-disable react-hooks/purity */
 import { Box, Typography, Grid } from "@mui/material";
+import { type FC } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { DONATION_OPTIONS } from "../../pages/public/donate/data";
 import { FontFamily } from "../../config/fonts";
 
-const SuccessScreen = ({ details, amount, frequency }) => {
+type Details = {
+  firstName: string;
+  email: string;
+};
+
+type SuccessScreenProps = {
+  details: Details;
+  amount: number | string;
+  frequency?: string;
+};
+
+const SuccessScreen: FC<SuccessScreenProps> = ({
+  details,
+  amount,
+  frequency,
+}) => {
   return (
     <Box sx={{ textAlign: "center", py: 4 }}>
       <Box

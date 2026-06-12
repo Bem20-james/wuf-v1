@@ -7,6 +7,7 @@ import {
   ImpactBanner,
   TestimonialCarousel,
   TransparencySection,
+  NewsletterSection,
 } from "../../../components/public";
 import PartnerSection from "./PartnersSection";
 
@@ -22,11 +23,14 @@ const ImpactPage = () => {
       <Box>
         <TransparencySection />
       </Box>
+
       <Box>
         <TestimonialCarousel />
       </Box>
 
       <StoriesSection />
+
+      <NewsletterSection />
 
       <PartnerSection />
 

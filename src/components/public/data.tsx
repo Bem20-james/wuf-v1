@@ -422,3 +422,100 @@ export const cards: InvolvementCard[] = [
     },
   },
 ];
+
+export interface Story {
+  id: number;
+  title: string;
+  excerpt: string;
+  fullText: string;
+  category: string;
+  date: string;
+  image: string;
+  hasVideo: boolean;
+}
+
+export const ALL_STORIES: Story[] = [
+  {
+    id: 1,
+    category: "Family Empowerment",
+    date: "Oct 12, 2023",
+    title: "Q3 Progress Report: 50 Families Empowered",
+    excerpt:
+      "Our latest quarterly results show a significant increase in vocational training enrolment across three states.",
+    fullText:
+      "This quarter marked a turning point for our Family Empowerment programme. Fifty families across Enugu, Anambra, and Delta states completed our six-week vocational training module, with 38 of them already generating income from their new skills. The programme covers tailoring, food processing, and basic bookkeeping — skills chosen directly by community members during our listening sessions earlier in the year. Our facilitators note that the shift in confidence among participants is as significant as the economic gains. We will continue to scale this programme into the North-West in Q4.",
+    image: "/impact/story1.jpg",
+    hasVideo: false,
+  },
+  {
+    id: 2,
+    category: "Educational Research",
+    date: "Oct 10, 2023",
+    title: "Understanding Barriers to Rural Education",
+    excerpt:
+      "New research highlights transportation as the leading cause of school dropouts in rural communities.",
+    fullText:
+      "A recent study we commissioned in partnership with three Nigerian universities reveals that over 60% of school-age children who drop out in rural areas cite distance and lack of transport as the primary reason. This finding reshapes how we approach our Education pillar. Going forward, we are piloting a bicycle grant scheme in Kogi and Niger states, providing 200 bicycles to children living more than 5km from the nearest school. Early results from the pilot show a 34% improvement in attendance rates within the first month. We are sharing this research openly so that other NGOs and government partners can act on the data.",
+    image: "/impact/story2.jpg",
+    hasVideo: true,
+  },
+  {
+    id: 3,
+    category: "Program Milestone",
+    date: "Oct 05, 2023",
+    title: "A New Community Center Opens",
+    excerpt:
+      "This facility will serve as a hub for after-school tutoring and parent literacy programs.",
+    fullText:
+      "We are proud to announce the opening of the Nnewi Community Learning Center — our seventh facility built in partnership with local government authorities. The center houses four classrooms, a small library stocked with over 800 books, and a dedicated parents' room for adult literacy sessions held every Wednesday and Friday evening. The construction employed 24 local artisans over a four-month period. At the opening ceremony, the State Commissioner for Education described the center as a model for community-led development. We invite volunteers and donors to visit and see the impact of your contributions firsthand.",
+    image: "/impact/story3.jpg",
+    hasVideo: true,
+  },
+  {
+    id: 4,
+    category: "Success Stories",
+    date: "Sep 28, 2023",
+    title: "The Power of Mentorship",
+    excerpt:
+      "How local college students are giving back by tutoring primary school children in their communities.",
+    fullText:
+      "In partnership with four universities in Lagos and Ogun states, we launched the Peer Mentorship Initiative — a structured programme that pairs university students with primary school pupils in underserved neighbourhoods. Over 120 university volunteers have committed two hours every Saturday to tutoring, homework help, and character mentorship sessions. The results after just one semester are remarkable: 89% of enrolled pupils improved their scores in Mathematics and English. For the university students, the programme is equally transformative. Many describe it as the most meaningful part of their academic experience.",
+    image: "/impact/story4.jpg",
+    hasVideo: false,
+  },
+  {
+    id: 5,
+    category: "Child Welfare",
+    date: "Sep 22, 2023",
+    title: "Health & Nutrition in Schools",
+    excerpt:
+      "Exploring the link between regular school meals and improved concentration levels among pupils.",
+    fullText:
+      "Our school feeding programme, now active in 22 partner schools, has produced striking evidence of the link between nutrition and academic performance. Teachers consistently report that pupils who receive our daily meal — a balanced portion of rice, beans, and vegetables — show markedly higher concentration levels and lower rates of absenteeism. One headmistress in Ibadan described it plainly: 'A hungry child cannot learn.' This programme costs just ₦450 per child per day. We are calling on corporate partners to sponsor entire schools, enabling us to scale to 50 schools by the end of the year.",
+    image: "/impact/story5.jpg",
+    hasVideo: true,
+  },
+  {
+    id: 6,
+    category: "Pilot Updates",
+    date: "Sep 15, 2023",
+    title: "Teacher Training Workshop 2023",
+    excerpt:
+      "Equipping 200 teachers with trauma-informed teaching practices to better support at-risk children.",
+    fullText:
+      "Two hundred primary school teachers from across Kaduna and Plateau states attended our three-day residential workshop on trauma-informed pedagogy. Many of the children in our partner schools have experienced displacement, family breakdown, or early labour — and standard classroom approaches often fail them. This workshop equips teachers with practical tools: how to identify signs of distress, how to de-escalate situations sensitively, and how to create a classroom culture of psychological safety. Participant feedback has been overwhelmingly positive, with 94% of attendees rating the training as 'highly applicable' to their daily work. We plan to train an additional 500 teachers in 2024.",
+    image: "/impact/story6.jpg",
+    hasVideo: false,
+  },
+];
+
+export const CATEGORIES = [
+  "All Updates",
+  "Success Stories",
+  "Pilot Updates",
+  "Education",
+  "Child Welfare",
+  "Family Empowerment",
+  "Educational Research",
+  "Program Milestone",
+];

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Container, Grid, Typography, Button, Chip } from "@mui/material";
+import { Box, Container, Grid, Typography, Chip } from "@mui/material";
 import { FontFamily } from "../../config/fonts";
 import { COLORS } from "../../config/colors";
 import { cards, type InvolvementCard } from "./data";
@@ -142,13 +142,14 @@ const GetInvolved = () => {
                   >
                     {card.description}
                   </Typography>
+
                   <CustomButton
-                    to={"/auth/onboarding"}
+                    to={""}
                     variant={card.highlighted ? "filled" : "outlined"}
                     btncolor="primary"
                     radius="90px"
                     fullWidth
-                    onClick={() => {}}
+                    onClick={() => setDialogCard(card)}
                     sx={{
                       width: "100%",
                       fontFamily: FontFamily.primary,
