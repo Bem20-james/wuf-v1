@@ -343,3 +343,82 @@ export const testimonials: Testimonial[] = [
     color: "#DCC8F0",
   },
 ];
+
+export interface InvolvementCard {
+  image: string;
+  badge?: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+  highlighted?: boolean;
+  dialog: {
+    title: string;
+    body: string[];
+    steps: string[];
+  };
+}
+
+export const cards: InvolvementCard[] = [
+  {
+    image: "/volunteer/volunteer3.png",
+    title: "Individual Volunteers",
+    description:
+      "Give your time. Mentor a child, help with school supplies distribution, or assist in our local community centers.",
+    ctaLabel: "Learn More",
+    dialog: {
+      title: "Volunteer as an Individual",
+      body: [
+        "Individual volunteers are the backbone of everything we do. Whether you can spare a few hours a week or commit to a full programme cycle, your time makes a direct and measurable difference in a child's life.",
+        "We match every volunteer to a role that fits their schedule, skillset, and location — from mentoring and tutoring to logistics, administration, and community outreach.",
+      ],
+      steps: [
+        "Fill out our volunteer interest form online",
+        "Attend a brief orientation session (virtual or in-person)",
+        "Get matched to a programme in your area",
+        "Begin serving — with full support from our team",
+      ],
+    },
+  },
+  {
+    image: "/volunteer/volunteer2.png",
+    badge: "High Impact",
+    title: "Corporate Partners",
+    description:
+      "Align your brand with change. Invest in sustainable education programs and help us scale our impact globally.",
+    ctaLabel: "Partner With Us",
+    highlighted: true,
+    dialog: {
+      title: "Corporate Partnership",
+      body: [
+        "Corporate partnerships go beyond writing a cheque. We work with your CSR team to design meaningful engagement — from staff volunteering days and skills transfer workshops to co-branded campaigns and long-term programme sponsorships.",
+        "Every partnership is bespoke. We align your company's values and goals with the areas of our work where your contribution will have the highest impact.",
+      ],
+      steps: [
+        "Schedule a partnership discovery call with our team",
+        "Co-design a giving or volunteering package",
+        "Sign a Memorandum of Understanding",
+        "Launch your engagement and receive quarterly impact reports",
+      ],
+    },
+  },
+  {
+    image: "/volunteer/volunteer1.png",
+    title: "Community Organizers",
+    description:
+      "Lead the way. Start a local chapter, host a fundraising event, or coordinate donation drives in your neighborhood.",
+    ctaLabel: "Organize Now",
+    dialog: {
+      title: "Become a Community Organiser",
+      body: [
+        "Community organisers are our eyes and ears on the ground. If you are passionate about change in your neighbourhood, city, or local government area, we will equip and empower you to lead.",
+        "You can start a local chapter, run a donation drive, mobilise other volunteers, or advocate for beneficiaries in your community — all with the full backing of our national team.",
+      ],
+      steps: [
+        "Express your interest via our organiser application form",
+        "Attend our Community Leadership Training (2-day programme)",
+        "Register your local chapter and receive a starter kit",
+        "Begin organising with ongoing support and resources",
+      ],
+    },
+  },
+];

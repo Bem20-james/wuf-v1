@@ -23,3 +23,5 @@ export { default as StoriesSection } from "./StoriesSection";
 export { default as ImpactBanner } from "./ImpactBanner";
 export { default as TestimonialCarousel } from "./TestimonialCarousel";
 export { default as TransparencySection } from "./TransparencySection";
+export { default as VolunteerHero } from "./VolunteerHero";
+export { default as GetInvolved } from "./GetInvolved";

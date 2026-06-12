@@ -6,7 +6,7 @@ interface LayoutProps {
 }
 
 function PublicLayout({ children }: LayoutProps) {
-  const noLayoutRoutes = ["/volunteer"];
+  const noLayoutRoutes = ["/donate"];
   const currentPath = window.location.pathname;
   const showHeader = !noLayoutRoutes.includes(currentPath);
 

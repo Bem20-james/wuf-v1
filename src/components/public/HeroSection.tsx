@@ -16,7 +16,7 @@ const HeroSection = () => {
       sx={{
         backgroundColor: COLORS.white,
         position: "relative",
-        overflow: "visible", // allow stats bar to bleed out
+        overflow: "visible",
       }}
     >
       <Box
